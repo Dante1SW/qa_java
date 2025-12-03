@@ -4,12 +4,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-
 import java.util.Arrays;
 import java.util.Collection;
-
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 
 @RunWith(Parameterized.class)
 public class LionParameterizedTest {
@@ -24,7 +21,7 @@ public class LionParameterizedTest {
 
     @Parameters
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] {
+        return Arrays.asList(new Object[][]{
                 {"Самец", true},
                 {"Самка", false}
         });
@@ -32,8 +29,7 @@ public class LionParameterizedTest {
 
     @Test
     public void testConstructorAndDoesHaveMane() throws Exception {
-        Predator predatorMock = mock(Predator.class);
-        Lion lion = new Lion(sex, predatorMock);
+        Lion lion = new Lion(sex);
         assertEquals(expectedHasMane, lion.doesHaveMane());
     }
 }

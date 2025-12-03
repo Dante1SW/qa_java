@@ -2,13 +2,11 @@ package com.example;
 
 import java.util.List;
 
-public class Lion {
+public class Lion extends Feline {
 
     private boolean hasMane;
-    private Predator predator;
 
-    public Lion(String sex, Predator predator) throws Exception {
-        this.predator = predator;
+    public Lion(String sex) throws Exception {
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
@@ -18,19 +16,12 @@ public class Lion {
         }
     }
 
-    public int getKittens() {
-        if (predator instanceof Feline) {
-            Feline feline = (Feline) predator;
-            return feline.getKittens();
-        }
-        return 0;
-    }
-
     public boolean doesHaveMane() {
         return hasMane;
     }
 
+
     public List<String> getFood() throws Exception {
-        return predator.eatMeat();
+        return eatMeat();
     }
 }

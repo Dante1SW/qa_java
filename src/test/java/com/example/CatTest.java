@@ -4,9 +4,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.Arrays;
-
+import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -24,8 +23,11 @@ public class CatTest {
 
     @Test
     public void testGetFood() throws Exception {
-        when(felineMock.eatMeat()).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
+
+        List<String> expectedFood = Arrays.asList("Животные", "Птицы", "Рыба");
+        when(felineMock.eatMeat()).thenReturn(expectedFood);
         Cat cat = new Cat(felineMock);
-        assertEquals(3, cat.getFood().size());
+        List<String> actualFood = cat.getFood();
+        assertEquals(expectedFood, actualFood);
     }
 }
