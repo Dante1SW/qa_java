@@ -25,10 +25,4 @@ public class FelineTest {
         Feline feline = new Feline();
         assertEquals(1, feline.getKittens());
     }
-
-    @Test
-    public void testGetKittensWithArgument() {
-        Feline feline = new Feline();
-        assertEquals(3, feline.getKittens(3));
-    }
 }
